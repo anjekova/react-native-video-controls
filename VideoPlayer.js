@@ -31,6 +31,7 @@ export default class VideoPlayer extends Component {
     volume: 1,
     title: '',
     rate: 1,
+    loaderEnabled: true,
   };
 
   constructor(props) {
@@ -47,6 +48,7 @@ export default class VideoPlayer extends Component {
       muted: this.props.muted,
       volume: this.props.volume,
       rate: this.props.rate,
+      loaderEnabled: this.props.loaderloaderEnabled,
       // Controls
 
       isFullscreen:
@@ -1142,7 +1144,7 @@ export default class VideoPlayer extends Component {
    * Show loading icon
    */
   renderLoader() {
-    if (this.state.loading) {
+    if (this.state.loading && this.state.loaderEnabled) {
       return (
         <View style={styles.loader.container}>
           <Animated.Image
